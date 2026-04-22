@@ -50,7 +50,7 @@ To run the program, execute:
 
 **Nhidden**                -> Number of hidden layers
 
-**Niterations**            -> Number of training iterations
+**Niterations**            -> Number of iterations
 
 **N_per_batch**            -> Number of data points per batch
                      
