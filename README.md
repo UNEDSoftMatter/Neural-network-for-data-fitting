@@ -1,4 +1,4 @@
-# Neural-network-to-fit-data
+# Neural-network-for-fitting-data
 CUDA code for a neural network that fits a set of three‑dimensional data points (x,y,z). The neural network finds an approximating function f(x,y) that best fits the data. The implementation is written in CUDA and is designed to run on GPUs.
 
 mail: a.vazquez-quesada@fisfun.uned.es
