@@ -75,3 +75,12 @@ To run the program, execute:
                              This file is a gnuplot script used to plot the fitted function
 
 
+# Data File
+
+The file `data.dat` must contain three columns corresponding to the x, y, and z values of each data point.
+
+# Output files
+
+** loss_function.dat **
+
+
