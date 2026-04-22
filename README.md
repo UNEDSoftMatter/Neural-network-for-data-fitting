@@ -80,7 +80,7 @@ To run the program, execute:
 
 # Data File
 
-The file `data.dat` must contain three columns corresponding to the x, y, and z values of each data point.
+The file `data.dat` must contain three columns corresponding to the x-, y-, and z-coordinates of each data point.
 
 
 # Output Files
