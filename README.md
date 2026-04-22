@@ -43,48 +43,37 @@ To run the program, execute:
 
 # Input Variables
 
-Nneurons  
-→ Number of neurons per hidden layer.
+**Nneurons**               -> Number of neurons per hidden layer
 
-Nhidden  
-→ Number of hidden layers.
+**Nhidden**                -> Number of hidden layers
 
-Niterations  
-→ Number of training iterations.
+**Niterations**            -> Number of training iterations
 
-N_per_batch  
-→ Number of data points per batch.
+**N_per_batch**            -> Number of data points per batch
+                     
+**initialization**         -> Initialization method for weights and biases. There are two options:
 
-initialization  
-→ Method for initializing weights and biases. Two options are available:
+                             1.- Uniform random distribution in the interval (-epsilon, epsilon)
+                      
+                             2.- Xavier initialization
 
-&nbsp;&nbsp;&nbsp;&nbsp;1. Uniform random distribution in the interval (-epsilon, epsilon)  
-&nbsp;&nbsp;&nbsp;&nbsp;2. Xavier initialization
+**epsilon**               -> Parameter used when initialization = 1
 
-epsilon  
-→ Parameter used when initialization = 1.
+**initial_learning_rate** -> Initial learning rate of the neural network
 
-initial_learning_rate  
-→ Initial learning rate of the neural network.
+**beta1**                 -> ADAM optimizer parameter for the gradient descent update
 
-beta1  
-→ ADAM optimizer parameter for the gradient descent update.
+**beta2**                 -> ADAM optimizer parameter for the gradient descent update
 
-beta2  
-→ ADAM optimizer parameter for the gradient descent update.
+**epsilon_adam**          -> ADAM optimizer parameter used for numerical stability
 
-epsilon_adam  
-→ ADAM optimizer parameter used for numerical stability.
+**Nfiles**                -> This variable is not currently used and will be removed in future updates
 
-Nfiles  
-→ This variable is currently not used and will be removed in future updates.
+**freq_loss_function**    -> Frequency (in iterations) at which the loss function value is written to the file `loss_function.dat`
 
-freq_loss_function  
-→ Frequency (in iterations) at which the loss function value is written to the file `loss_function.dat`.
+**freq_gnu_file**         -> Frequency (in iterations) at which the file `approx_function-%d.gnu` is generated, where `%d` is the iteration number.  
+                             This file is a gnuplot script used to plot the fitted function
 
-freq_gnu_file  
-→ Frequency (in iterations) at which the file `approx_function-%d.gnu` is generated, where `%d` is the iteration number.  
-→ This file is a gnuplot script used to plot the fitted function.
 
 # Input variables 
 
