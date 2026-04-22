@@ -29,6 +29,10 @@ If you want to clean everthing before compiling again, just do
 make clean
 
 
+![Texto alternativo](images/loss_function_graph.png)
+
+
+
 # Running the program
 
 You need to have the following files in the same directory (with the exact names shown below):
