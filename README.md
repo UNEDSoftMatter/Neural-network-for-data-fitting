@@ -29,7 +29,11 @@ If you want to clean everthing before compiling again, just do
 make clean
 
 
-![Texto alternativo](images/loss_function_graph.png)
+<p align="center">
+  <img src="img/images/loss_function_graph.png" width="500">
+</p>
+
+
 
 
 
