@@ -75,34 +75,3 @@ To run the program, execute:
                              This file is a gnuplot script used to plot the fitted function
 
 
-# Input variables 
-
-Nneurons               -> Number of neurons per hidden layer
-
-Nhidden                -> Number of hidden layers
-
-Niterations            -> Number of iterations
-
-N_per_batch            -> Number of data per batch
-                     
-initialization         -> Initialization of weights and biases. There are two options:
-
-                             1.- From a uniform random distribution in the interval (-epsilon, epsilon)
-                      
-                             2.- Xavier initialization
-
-epsilon               -> Variable used when initialization = 1
-
-initial_learning_rate -> Initial learning rate of the neural network
-
-beta1                 -> Parameter of the ADAM update of the parameters of the gradient descent method
-
-beta2                 -> Parameter of the ADAM update of the parameters of the gradient descent method
-
-epsilon_adam          -> Parameter of the ADAM update of the parameters of the gradient descent method
-
-Nfiles                -> This variable is not used. It will be removed in future updates.
-
-freq_loss_function    -> Steps frequency to write loss function value in the file loss_function.dat
-
-freq_gnu_file         -> Steps frequency to write the file approx_function-%d.gnu, where %d is the iteration number. This file is a script to be used by gnuplot to draw the fitting function.
