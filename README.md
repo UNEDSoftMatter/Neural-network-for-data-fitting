@@ -79,12 +79,17 @@ To run the program, execute:
 
 The file `data.dat` must contain three columns corresponding to the x, y, and z values of each data point.
 
-# Output files
 
-`loss_function.dat` -> Two columns.
+# Output Files
+
+`loss_function.dat` -> Two columns:
 
                       Column 1 -> Iteration
 
-                      Column 2 -> Loss function
+                      Column 2 -> Loss function value
 
+`approx_function-%d.gnu`, where `%d` is the iteration number.
 
+This is a script for the gnuplot program used to plot the function fitted by the neural network. To run it, simply execute:
+
+  gnuplot approx_function-%d.gnu
