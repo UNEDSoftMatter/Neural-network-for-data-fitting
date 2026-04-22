@@ -4,10 +4,11 @@ Developed by Adolfo Vázquez-Quesada.
 
 mail: a.vazquez-quesada@fisfun.uned.es
 
-<figure align="center">
-  <img src="images/loss_function_graph.png" width="500">
-  <figcaption>Evolution of the loss function during training.</figcaption>
-</figure>
+
+<p align="center">
+  <img src="images/loss_function_graph.png" width="500"><br>
+  <em>Evolution of the loss function during training, for different neural networks.</em>
+</p>
 
 --------------------------------------------------
 
