@@ -30,7 +30,7 @@ make clean
 
 
 <p align="center">
-  <img src="img/images/loss_function_graph.png" width="500">
+  <img src="images/loss_function_graph.png" width="500">
 </p>
 
 
