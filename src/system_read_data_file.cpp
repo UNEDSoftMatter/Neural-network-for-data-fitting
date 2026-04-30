@@ -1,3 +1,10 @@
+/******************************************************
+This code has been developed by Adolfo Vazquez-Quesada,
+from the Department of Fundamental Physics at UNED, in
+Madrid, Spain.
+email: a.vazquez-quesada@fisfun.uned.es
+********************************************************/
+
 #include "class_system.h"
 #include <iostream>
 #include <fstream>
@@ -6,7 +13,7 @@
 
 // Function to read data from the file
 // To access the file of i row and j column:
-//     datos[i*3 + j]
+//     data[i*3 + j]
 // row 0 → data[0], data[1], data[2]
 // row 1 → data[3], data[4], data[5]
 // row 2 → data[6], data[7], data[8]
@@ -16,7 +23,7 @@ int class_system::read_data_file(const char* file_name)
 {
     std::ifstream file(file_name);
     if (!file.is_open()) {
-      printf("System read data file error: the data file is already open.\n");
+      printf("System read data file error: cannot open file data.dat.\n");
         return 1;
     }
 

@@ -46,10 +46,11 @@ __global__ void kernel_average_grad_W_hidden_layer0(int  batch,
     else // m == 1
       input_data = data[start_pos + 1];	  //ydata
     
-    // In each neuron we store as many values as batches. b is the batch.
+    // In each neuron we store as many values as data in the batch. b is the batch.    
     sum += delta[0][n + b*Nneurons] * input_data;
   }
-  
+
+    
   grad_W_hidden[0][i] = sum / (real)Nbatch_data;
 
 }

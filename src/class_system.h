@@ -21,7 +21,7 @@ struct class_system {
   real epsilon;       // epsilon for initialization = 1
   int  N_per_batch;   // Number of data per batch
   int  Nbatches;      // Number of data batches
-  int* batch_index;   // indices pointing the initial and final index of data of each batch
+  int* batch_index;   // indices pointing the initial index of data of each batch
   real eta;           // initial learning rate
   real beta1;         // Parameter of the Adams model
   real beta2;         // Parameter of the Adams model
@@ -78,7 +78,7 @@ struct class_system {
 			       real**  k_exit_value,
 			       real*** k_delta,
 			       real**  k_delta_out,
-			       real*** k_gradW_hidden,
+			       real*** k_grad_W_hidden,
 			       real**  k_grad_W_out,
 			       real*** k_grad_b_hidden,
 			       real**  k_grad_b_out,

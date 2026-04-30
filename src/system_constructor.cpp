@@ -42,9 +42,9 @@ void class_system::constructor(int  Nneurons_per_layer,
 
   //-- Arrays for batches --
   //-- To use the final incomplete batch --
-  this->N_per_batch    = Number_per_batch;  
-  this->Nbatches = (Ndata + N_per_batch - 1) / N_per_batch;
-  batch_index = new int[Nbatches];
+  this->N_per_batch = Number_per_batch;  
+  this->Nbatches    = (Ndata + N_per_batch - 1) / N_per_batch;
+  batch_index       = new int[Nbatches];
 
   printf("Pointers constructed\n");
 

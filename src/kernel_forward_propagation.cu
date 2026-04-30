@@ -29,27 +29,46 @@ __global__ void kernel_forward_propagation(int batch,
   if (batch == Nbatches - 1)
     imax = Ndata - batch_index[Nbatches - 1];
   if (i >= imax) return;
+  // i is the data i of the batch 'batch'  
 
-  int row       = batch_index[batch];
-  int start_pos = row*3 + i*3;
+  int row       = batch_index[batch]; //batch starts in this row of the data array
+  int start_pos = 3 * (row + i);
   real xdata    = data[start_pos];
   real ydata    = data[start_pos + 1];
   // real zdata    = data[start_pos + 2];
 
-  //--- Propagation through the first hidden layer ---
+  //--- indices ranges: ---
   // z_j^(k) = sigma_act(sum_i w_ji^(k) * z_i^(k-1) + b_j^(k))
-  // indices ranges:
-  // w_j0: 0 -> Nneurons - 1
-  // w_j1: Nneurons -> Nneurons + (Nneurons - 1)
-  // etc
-  // In general, w_ji: i*Nneurons -> i*Nneurons + (Nneurons - 1)
-  // In general w_ji^k = W_hidden[k][j + i*Nneurons]  
+  // w_0_0 -> 0
+  // w_0_1 -> 1
+  // ...
+  // w_0_Nneurons -> Nneurons - 1
+  // w_1_0 -> Nneurons
+  // w_1_1 -> Nneurons + 1
+  // ...
+  // w_1_Nneurons -> 2 * Nneurons - 1
+  // ...
+  //---  In general: w_mn -> m * Nneurons + n; here m goes from 0 to Nneurons - 1 ----
+  // a_0, data0 -> 0
+  // a_1, data0 -> 1
+  // ...
+  // a_Nneurons, data0 -> Nneurons - 1
+  // a_0, data1 -> Nneurons
+  // a_1, data1 -> Nneurons + 1
+  // ...
+  // a_Nneurons, data1 -> 2 * Nneurons - 1
+  // ...
+  //--- In general: a_n, data m -> m * Nneurons + n; here m goes from 0 to imax - 1 ---
+
+  //--- Propagation through the first hidden layer ---  
   for (int n = 0; n < Nneurons; n++) {
     a[0][n + i*Nneurons] = W_hidden[0][n           ] * xdata +
                            W_hidden[0][n + Nneurons] * ydata +
                            b_hidden[0][n];
-
-    // In each neuron we store as many values as batches. i is the batch.
+    
+    // In each neuron we store as many values as number of data of the batch.
+    // i is the identifier of the data of the batch, typically between 0 and
+    // N_per_batch (except in the last batch)
     z[0][n + i*Nneurons] = kernel_activation_function(a[0][n + i*Nneurons]);
   }
 
@@ -64,7 +83,9 @@ __global__ void kernel_forward_propagation(int batch,
 	a[k][n + i*Nneurons] = a[k][n + i*Nneurons] +
 	  W_hidden[k][n + m*Nneurons] * z[k-1][m + i*Nneurons];
       }
-      // In each neuron we store as many values as batches. i is the batch.      
+      // In each neuron we store as many values as number of data of the batch.
+      // i is the identifier of the data of the batch, typically between 0 and
+      // N_per_batch (except in the last batch)      
       z[k][n + i*Nneurons] = kernel_activation_function(a[k][n + i*Nneurons]);
     }
 

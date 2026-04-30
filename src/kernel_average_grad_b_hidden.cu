@@ -26,7 +26,7 @@ __global__ void kernel_average_grad_b_hidden(int  batch,
 
   real sum = 0.0;
   for (int b = 0; b < Nbatch_data; b++){
-    // In each neuron we store as many values as batches. b is the batch.
+    // In each neuron we store as many values as data in the batch. b is the batch.    
     sum += delta[k][i + b*Nneurons];
   }
   

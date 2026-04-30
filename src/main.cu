@@ -256,11 +256,11 @@ int main() {
     //-- Weights, biases and parameters of the ADAM method are updated --
     size = sys.Nneurons;
     kernel_update_ADAM_out<<<numBlocks, threadsPerBlock>>>(size,
-							      step + 1,
-							      k_grad_W_out,
-							      k_W_out,
-							      k_m_W_out,
-							      k_v_W_out);
+							   step + 1,
+							   k_grad_W_out,
+							   k_W_out,
+							   k_m_W_out,
+							   k_v_W_out);
     size = 1;
     kernel_update_ADAM_out<<<numBlocks, threadsPerBlock>>>(size,
 							   step + 1,

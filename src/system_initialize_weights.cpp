@@ -28,7 +28,7 @@ int class_system::initialize_weights() {
     epsilon0 = sqrt(6) / sqrt(2 + 1);
 
   // Distribución uniforme entre 0.0 y 1.0
-  std::uniform_real_distribution<real> dist(-epsilon0, epsilon);
+  std::uniform_real_distribution<real> dist(-epsilon0, epsilon0);
 
   //-- Weights between the input and the first hidden layer (2 entries)  
   for (int i = 0; i < 2 * Nneurons; i++) 

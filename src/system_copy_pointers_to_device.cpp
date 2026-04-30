@@ -252,8 +252,8 @@ void class_system::copy_pointers_to_device(real**  k_data,
   delete[] temp;
 
   //--- v_W_out ---
-  cudaMalloc(k_v_W_out, 1 * sizeof(real)); // 1 output
-  cudaMemset(*k_v_W_out, 0, 1 * sizeof(real));
+  cudaMalloc(k_v_W_out, Nneurons * 1 * sizeof(real)); // 1 output
+  cudaMemset(*k_v_W_out, 0, Nneurons * 1 * sizeof(real));
 
   //--- m_b_hidden ---
   cudaMalloc(k_m_b_hidden, Nhidden * sizeof(real*));

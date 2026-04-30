@@ -14,7 +14,7 @@ void class_system::initialize_batches() {
 
   //*** Nbatches is defined in system_constructor ****
 
-  // batch_index[k] is the first index of the bathc k
+  // batch_index[k] is the first index of the batch k
   for (int k = 0; k < Nbatches; k++) 
     batch_index[k] = k * N_per_batch;
     

@@ -30,16 +30,32 @@ __global__ void kernel_back_propagation(int batch,
   if (i >= imax) return;
 
   int row = batch_index[batch];
-  int start_pos = row*3 + i*3;
+  int start_pos = 3 * (row + i);
   real zdata = data[start_pos + 2];
 
+  //--- indices ranges:   ---
   // z_j^(k) = sigma_act(sum_i w_ji^(k) * z_i^(k-1) + b_j^(k))
-  // indices ranges:  
-  // w_j0: 0 -> Nneurons - 1
-  // w_j1: Nneurons -> Nneurons + (Nneurons - 1)
-  // etc
-  // In general, w_ji: i*Nneurons -> i*Nneurons + (Nneurons - 1)
-  // In general w_ji^k = W_hidden[k][j + i*Nneurons]
+  // w_0_0 -> 0
+  // w_0_1 -> 1
+  // ...
+  // w_0_Nneurons -> Nneurons - 1
+  // w_1_0 -> Nneurons
+  // w_1_1 -> Nneurons + 1
+  // ...
+  // w_1_Nneurons -> 2 * Nneurons - 1
+  // ...
+  //---  In general: w_mn -> m * Nneurons + n; here m goes from 0 to Nneurons - 1 ----
+  // a_0, data0 -> 0
+  // a_1, data0 -> 1
+  // ...
+  // a_Nneurons, data0 -> Nneurons - 1
+  // a_0, data1 -> Nneurons
+  // a_1, data1 -> Nneurons + 1
+  // ...
+  // a_Nneurons, data1 -> 2 * Nneurons - 1
+  // ...
+  //--- In general: a_n, data m -> m * Nneurons + n; here m goes from 0 to imax - 1 ---  
+
   //-- Back propagation through the exit layer --
   // One output
   delta_out[i] = (exit_value[i] - zdata);
@@ -50,7 +66,8 @@ __global__ void kernel_back_propagation(int batch,
       kernel_der_activation_function(a[Nhidden - 1][n + i*Nneurons]);
 
   //-- Back propagation through the rest of hidden layers --
-  // Note that to calculate deltas of the 0 layer we do not need the weights of that layer.
+  // Note that for the  calculation of deltas of the 0 layer
+  // we do not need the weights of that layer.
   for (int k = Nhidden-2; k >= 0; k--) {      // Layers
     // We are calculating delta_m^k
     for (int m = 0; m < Nneurons; m++) {  // Neurons 
