@@ -45,24 +45,6 @@ __global__ void kernel_back_propagation(int batch,
 					real*  __restrict__ exit_value);
 __device__ real kernel_activation_function(real x);
 __device__ real kernel_der_activation_function(real x);
-__global__ void kernel_average_gradients(int batch,
-					 int*   __restrict__ batch_index,
-					 real*  __restrict__ data,
-					 real** __restrict__ grad_W_hidden,
-					 real** __restrict__ grad_b_hidden,
-					 real*  __restrict__ grad_W_out,
-					 real*  __restrict__ grad_b_out,
-					 real** __restrict__ delta,
-					 real*  __restrict__ delta_out,
-					 real** __restrict__ z);
-__global__ void kernel_neural_network_average_gradients(int batch,
-							int*   __restrict__ batch_index,
-							real*  __restrict__ data,
-							real** __restrict__ grad_W_hidden,
-							real** __restrict__ grad_b_hidden,
-							real*  __restrict__ grad_W_out,
-							real*  __restrict__ grad_b_out,
-							real** __restrict__ z);
 __global__ void kernel_update_ADAM_hidden(int k,
 					  int size,
 					  int t,

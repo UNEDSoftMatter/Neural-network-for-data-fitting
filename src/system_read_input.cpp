@@ -145,6 +145,10 @@ int class_system::read_input(int&   Nneurons_per_layer,
     printf("system read input error: N_per_batch was not read\n");
     return 1;
   }
+  if (eta_sys_read == 1)  {
+    printf("system read input error: eta was not read\n");
+    return 1;
+  }  
   if (beta1_sys_read == 1)  {
     printf("system read input error: beta1 was not read\n");
     return 1;
