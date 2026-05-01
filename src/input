@@ -3,12 +3,13 @@
   Nneurons  5
   Nhidden   2
 
+#  Niterations 1000
   Niterations 1000000
   N_per_batch 1000
 
   initialization 2
   epsilon 0.01
-  initial_learning_rate 0.00001  
+  eta 0.00001
   beta1   0.9
   beta2   0.999
   epsilon_adam 1.0e-8
@@ -17,3 +18,4 @@
 
   freq_loss_function  100
   freq_gnu_file       10000
+
